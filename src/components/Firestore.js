@@ -3,12 +3,12 @@ import { getFirestore } from "firebase/firestore"
 
 
 initializeApp({
-    apiKey: "AIzaSyDI4gDG-RM-D7glxIM3W2OhEuFVh2BgDlM",
-    authDomain: "reservas-67cf3.firebaseapp.com",
-    projectId: "reservas-67cf3",
-    storageBucket: "reservas-67cf3.appspot.com",
-    messagingSenderId: "125730756381",
-    appId: "1:125730756381:web:fef37927b0223dfed6b3f4"
+  apiKey: "AIzaSyDQTkyU_kclh3Woqjx7lBq_SXoGW5OvGEU",
+  authDomain: "restaurant-84dce.firebaseapp.com",
+  projectId: "restaurant-84dce",
+  storageBucket: "restaurant-84dce.appspot.com",
+  messagingSenderId: "593237353278",
+  appId: "1:593237353278:web:381a6c7c9f7d1cbcdb026f"
   
 });
 
