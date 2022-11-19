@@ -1,6 +1,6 @@
 import "./App.css";
 import React from "react";
-import { Routes, Route, BrowserRouter as Router } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 // import Rutas from './Rutas'
 
 import Home from "./components/Home";
@@ -9,22 +9,24 @@ import Menu from "./components/Menu";
 import Reservas from "./components/Reservas";
 import Contacto from "./components/Contacto";
 import Blog from "./components/Blog";
-// import ErrorPage from "./ErrorPage";
+import ErrorPage from "./components/ErrorPage";
+import Layout from './components/Layout';
 
 function App() {
   return (
-    // <Router>
+   
     <Routes>
-      <Route path="/" element={<Home />} />
+      <Route path="/" element={<Layout />} />
+      <Route index element={<Home />} />
 
       <Route path="/about" element={<About />} />
       <Route path="/menu" element={<Menu />} />
       <Route path="/reservas" element={<Reservas />} />
       <Route path="/contacto" element={<Contacto />} />
       <Route path="/blog" element={<Blog />} />
-      {/* <Route path="*" element={<ErrorPage />} /> */}
+      <Route path="*" element={<ErrorPage />} /> 
     </Routes>
-    // </Router>
+   
   );
 }
 
