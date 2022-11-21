@@ -8,7 +8,7 @@ import About from "./components/About";
 import Menu from "./components/Menu";
 import Reservas from "./components/Reservas";
 import Contacto from "./components/Contacto";
-import Blog from "./components/Blog";
+import Blog from "./components/Blog/Blog";
 import ErrorPage from "./components/ErrorPage";
 import Layout from './components/Layout';
 
