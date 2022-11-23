@@ -1,12 +1,13 @@
 import "./App.css";
 import React from "react";
 import { Routes, Route } from "react-router-dom";
+import 'bootstrap/dist/css/bootstrap.min.css';
 // import Rutas from './Rutas'
 
 import Home from "./components/Home";
 import About from "./components/About";
 import Menu from "./components/Menu";
-import Reservas from "./components/Reservas";
+import Reservas from "./components/Reservas/Reservas";
 import Contacto from "./components/Contacto";
 import Blog from "./components/Blog";
 import ErrorPage from "./components/ErrorPage";
