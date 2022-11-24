@@ -1,0 +1,47 @@
+.header {
+  background-image: url(./img/home.jpg);
+
+  height: 600px;
+
+  background-position: 10% center;
+
+  background-repeat: no-repeat;
+
+  background-size: cover;
+
+  padding: 0 5em;
+}
+
+.logo-section {
+  flex-direction: column;
+
+  justify-content: center;
+
+  width: 60vh;
+
+  text-align: center;
+}
+
+.header p {
+  font-size: 14px;
+
+  margin-top: 20px;
+
+  margin-left: 90px;
+
+  margin-bottom: 40px;
+}
+
+.logo {
+  width: 50vh;
+
+  margin-top: 70px;
+
+  margin-left: 30px;
+
+  margin-bottom: 20px;
+}
+
+.header button {
+  margin-left: 90px;
+}

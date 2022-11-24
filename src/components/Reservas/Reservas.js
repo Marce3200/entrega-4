@@ -55,7 +55,7 @@ export function Reservas() {
       <Form.Group className="mb-3 " controlId="formBasicEmail">
         <Form.Label>Nombre</Form.Label>
         <Form.Control
-          id="name"
+        //   id="name"
           type="text"
           name="name"
           value={inputs.name || ""}
@@ -67,7 +67,7 @@ export function Reservas() {
       <Form.Group className="mb-3" controlId="formBasicEmail">
         <Form.Label>Apellido</Form.Label>
         <Form.Control
-          id="apellido"
+        //   id="apellido"
           type="text"
           name="apellido"
           value={inputs.apellido || ""}
