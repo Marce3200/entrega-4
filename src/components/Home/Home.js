@@ -11,7 +11,7 @@ const Home = () => {
       <p> Mejora tus hábitos, mejora el mundo, mejora tu paladar. Prueba Nigiri y enamórate otra vez.</p>
       
       <div>
-        <a href="/Menu">
+        <a ref="../Menu/Menu.js">
       <Button variant="dark">Menú</Button>
       </a>
       </div>
