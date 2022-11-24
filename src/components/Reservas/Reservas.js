@@ -15,6 +15,27 @@ export function Reservas() {
     setInputs((values) => ({ ...values, [name]: value }));
   };
 
+
+//   async function handleSubmit(event) {
+//     event.preventDefault();
+//     console.log(formValues);
+//     const { fechaReserva } = formValues;
+//     let fecha = new Date(fechaReserva).toISOString();
+//     formValues.fechaReserva = fecha;
+
+//     //para mostar
+//     //  console.log(new Date(fecha).toLocaleString())
+//     // aqui poner
+//     try {
+//       const docRef = await addDoc(collection(db, "contactos"), formValues);
+//       console.log("Document written with ID: ", docRef.id);
+//     } catch (e) {
+//       console.error("Error adding document: ", e);
+//     }
+//   }
+
+
+
   //manda datos a firestore
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -77,7 +98,7 @@ export function Reservas() {
         </Form.Group>
 
         <Dropdown>
-          <Dropdown.Toggle variant="info" id="dropdown-basic">
+          <Dropdown.Toggle  variant= "outline-info"id="dropdown-basic">
             Cantidad de personas
           </Dropdown.Toggle>
 
@@ -102,17 +123,8 @@ export function Reservas() {
             </Dropdown.Item>
           </Dropdown.Menu>
         </Dropdown>
-        <label>
-          Cantidad de personas:
-          <select value={inputs.cantidadPersonas} onChange={handleChange}>
-            <option value="1">1 persona</option>
-            <option value="2">2 personas</option>
-            <option value="3">3 personas</option>
-            <option value="4">4 personas</option>
-            <option value="5">5 personas</option>
-            <option value="6">6 personas</option>
-          </select>
-        </label>
+
+     
         <label>
           Ingresa fecha:
           <input
@@ -127,6 +139,13 @@ export function Reservas() {
 
         <Button type="submit">Reservar</Button>
       </Form>
+
+	  <div className=" lg gap-2">
+      <Button variant= "outline-info" size="lg">
+        Lista de Espera
+      </Button>
+      
+    </div>
     </div>
   );
 }
