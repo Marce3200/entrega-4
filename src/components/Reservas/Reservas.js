@@ -1,13 +1,15 @@
 import React from "react";
 import { useState } from "react";
 import { db } from "../Firestore";
-import { collection, addDoc } from "firebase/firestore";
+import { collection, addDoc , getDocs} from "firebase/firestore";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
-// import Dropdown from "react-bootstrap/Dropdown";
+import { useNavigate } from "react-router-dom";
+
 
 export function Reservas() {
   const [inputs, setInputs] = useState({});
+  const navigate = useNavigate();
 
   //obtiene nombre y value, los almacena y lo transforma en objeto y eso alimenta handleSubmit
   const handleChange = (event) => {
@@ -18,10 +20,9 @@ export function Reservas() {
 
   //   async function handleSubmit(event) {
   //     event.preventDefault();
-  //     console.log(formValues);
-  //     const { fechaReserva } = formValues;
+  //     const { fechaReserva } = inputs;
   //     let fecha = new Date(fechaReserva).toISOString();
-  //     formValues.fechaReserva = fecha;
+  //     inputs.fechaReserva = fecha;
 
   //     //para mostar
   //     //  console.log(new Date(fecha).toLocaleString())
@@ -37,15 +38,36 @@ export function Reservas() {
   //manda datos a firestore
   const handleSubmit = async (event) => {
     event.preventDefault();
+    inputs.cantidadPersonas = !inputs.cantidadPersonas
+      ? "1"
+      : inputs.cantidadPersonas;
+
+	 
+	  //primero traer los datos con get Doc para rescatar fechas. cambiar inputs
+	  let resultado = (cosa del get con fechaReserva).map((fecha) => fecha == inputs.fechaReserva )
+	  if (resultado.includes(true)) {
+		//tirar alerta de lista de espera
+	  } 
+	  else {
+
     await addDoc(collection(db, "reservas"), {
-      nombreCliente: inputs.nombre,
+      nombreCliente: inputs.nombreCliente,
       apellidoCliente: inputs.apellidoCliente,
-      fechaReserva: inputs.fechareserva,
+      fechaReserva: inputs.fechaReserva,
       cantidadPersonas: inputs.cantidadPersonas,
       telefono: inputs.telefono,
     });
+    try {
+      const docRef = await addDoc(collection(db, "reservas"), inputs);
+      console.log("Document written with ID: ", docRef.id);
+    } catch (e) {
+      console.error("Error adding document: ", e);
+    }
+
+	navigate('/reserva-exitosa')
+}
     //funcion para recargar la pagina que recarga el home
-    window.location.reload(false);
+    // window.location.reload(false);
   };
 
   //onsubmit ejecuta funcion que manda datos a firestore
@@ -58,8 +80,8 @@ export function Reservas() {
           <Form.Control
             //   id="name"
             type="text"
-            name="name"
-            value={inputs.name || ""}
+            name="nombreCliente"
+            value={inputs.nombreCliente || ""}
             onChange={handleChange}
             placeholder="escriba el nombre"
           />
@@ -70,43 +92,54 @@ export function Reservas() {
           <Form.Control
             //   id="apellido"
             type="text"
-            name="apellido"
-            value={inputs.apellido || ""}
+            name="apellidoCliente"
+            value={inputs.apellidoCliente || ""}
             onChange={handleChange}
             placeholder="escriba el apellido"
           />
         </Form.Group>
 
-       
-          <Form.Group className="mb-3">
-            <Form.Label>Mail*</Form.Label>
-            <Form.Control type="email" placeholder="Enter email" />
-          </Form.Group>
+        <Form.Group className="mb-3">
+          <Form.Label>Mail*</Form.Label>
+          <Form.Control
+            type="email"
+            name="mail"
+            value={inputs.mail || ""}
+            onChange={handleChange}
+            placeholder="Enter email"
+          />
+        </Form.Group>
 
-          <Form.Group className="mb-3">
-            <Form.Label>Telefono* (+56)</Form.Label>
-            <Form.Control
-              id="telefono"
-              type="tel"
-              name="telefono"
-              value={inputs.telefono || ""}
-              onChange={handleChange}
-              placeholder=""
-            />
-            <Form.Text className="text-muted">Formato: 931111111</Form.Text>
-          </Form.Group>
-		  <Form.Group controlId="exampleForm.ControlSelect1">
-    <Form.Label>Cantidad de personas*</Form.Label>
-    <Form.Control as="select">
-      <option>1</option>
-      <option>2</option>
-      <option>3</option>
-      <option>4</option>
-      <option>5</option>
-	  <option>6</option>
-    </Form.Control>
-  </Form.Group>
-          {/* <Dropdown>
+        <Form.Group className="mb-3">
+          <Form.Label>Telefono* (+56)</Form.Label>
+          <Form.Control
+            id="telefono"
+            type="tel"
+            name="telefono"
+            value={inputs.telefono || ""}
+            onChange={handleChange}
+            placeholder=""
+          />
+          <Form.Text className="text-muted">Formato: 931111111</Form.Text>
+        </Form.Group>
+
+        <Form.Group controlId="exampleForm.ControlSelect1">
+          <Form.Label>Cantidad de personas*</Form.Label>
+          <Form.Control
+            as="select"
+            onChange={handleChange}
+            name="cantidadPersonas"
+            value={inputs.cantidadPersonas || "1"}
+          >
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+          </Form.Control>
+        </Form.Group>
+        {/* <Dropdown>
             <Dropdown.Toggle variant="outline-info" id="dropdown-basic">
               Cantidad de personas
             </Dropdown.Toggle>
@@ -133,20 +166,20 @@ export function Reservas() {
             </Dropdown.Menu>
           </Dropdown> */}
 
-          <label>
-            Ingresa fecha*:
-            <input
-              id="fechaReserva"
-              type="datetime-local"
-              name="fechareserva"
-              value={inputs.fechaReserva || ""}
-              onChange={handleChange}
-              placeholder="escriba el mail"
-            />
-          </label>
-          <Form.Text className="text-muted">(*) Campos obligatorios</Form.Text>
-          <Button type="submit">Reservar</Button>
-      
+        <label>
+          Ingresa fecha*:
+          <input
+            id="fechaReserva"
+            type="datetime-local"
+            name="fechaReserva"
+            value={inputs.fechaReserva || ""}
+            onChange={handleChange}
+            placeholder="escriba el mail"
+          />
+        </label>
+        <Form.Text className="text-muted">(*) Campos obligatorios</Form.Text>
+        <Button type="submit">Reservar</Button>
+
         <Form.Text className="text-muted">
           No te preocupes, nunca compartiremos tu datos con terceros.
         </Form.Text>
