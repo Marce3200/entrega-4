@@ -1,6 +1,7 @@
 import React from "react";
 import Form from "react-bootstrap/Form";
-import "./contacto.css"
+import "./contacto.css";
+import Button from "react-bootstrap/Button";
 
 const Contacto = () => {
   return (
@@ -14,6 +15,9 @@ const Contacto = () => {
           Japón, sino también con platos de autor con ingredientes de diferentes
           países del continente asiático. Todo en manos del chef y fundador,
           Minsu Bang.
+        </p>
+        <p className="texto-descripcion-1">
+          Estamos ubicados en Providencia 2463 Santiago, Chile
         </p>
       </div>
 
@@ -33,7 +37,7 @@ const Contacto = () => {
               placeholder="name@example.com"
             />
           </Form.Group>
-         
+
           <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
             <Form.Label className="form-label">
               Escríbenos y te contestaremos a la brevedad
@@ -41,6 +45,11 @@ const Contacto = () => {
             <Form.Control size="sm" as="textarea" rows={3} />
           </Form.Group>
         </Form>
+        <div className="container-boton">
+          <Button className="button-enviar" size="sm" variant="dark">
+            Enviar
+          </Button>
+        </div>
       </div>
     </div>
   );
