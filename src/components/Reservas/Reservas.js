@@ -5,6 +5,7 @@ import { collection, addDoc , getDocs} from "firebase/firestore";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import { useNavigate } from "react-router-dom";
+import swal from "sweetalert";
 
 
 export function Reservas() {
@@ -18,23 +19,6 @@ export function Reservas() {
     setInputs((values) => ({ ...values, [name]: value }));
   };
 
-  //   async function handleSubmit(event) {
-  //     event.preventDefault();
-  //     const { fechaReserva } = inputs;
-  //     let fecha = new Date(fechaReserva).toISOString();
-  //     inputs.fechaReserva = fecha;
-
-  //     //para mostar
-  //     //  console.log(new Date(fecha).toLocaleString())
-  //     // aqui poner
-  //     try {
-  //       const docRef = await addDoc(collection(db, "contactos"), formValues);
-  //       console.log("Document written with ID: ", docRef.id);
-  //     } catch (e) {
-  //       console.error("Error adding document: ", e);
-  //     }
-  //   }
-
   //manda datos a firestore
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -42,11 +26,31 @@ export function Reservas() {
       ? "1"
       : inputs.cantidadPersonas;
 
-	 
+	  //para traer datos de firestore
+	  const [fechasTomadas, setFechasTomadas] = React.useState([]);
+
+	  React.useEffect(() => {
+		  try {
+			  const readData = async (coleccion) => {
+				  const datos = await getDocs(collection(db, coleccion));
+				  //para agregar id a los props
+				  const arrFechas = datos.docs.map((doc) =>
+					  Object.assign(doc.data(), { id: doc.id })
+				  );
+				  // const arrDocumentos = datos.docs.map(doc => (doc.data()));
+				  setFechasTomadas(arrFechas);
+			  };
+			  readData('fechas');
+		  } catch (error) {
+			  console.error(error);
+		  }
+	  }, []);
 	  //primero traer los datos con get Doc para rescatar fechas. cambiar inputs
-	  let resultado = (cosa del get con fechaReserva).map((fecha) => fecha == inputs.fechaReserva )
+	  let resultado = arrFechas.map(fecha) => fecha === inputs.fechaReserva;
 	  if (resultado.includes(true)) {
-		//tirar alerta de lista de espera
+		const mostrarAlerta =()=>{
+			swal("La fecha elegida esta ocupada, te invitamos a dejar tus datos en la lista de espera")
+		}
 	  } 
 	  else {
 
@@ -139,33 +143,7 @@ export function Reservas() {
             <option value="6">6</option>
           </Form.Control>
         </Form.Group>
-        {/* <Dropdown>
-            <Dropdown.Toggle variant="outline-info" id="dropdown-basic">
-              Cantidad de personas
-            </Dropdown.Toggle>
-
-            <Dropdown.Menu>
-              <Dropdown.Item option value="1">
-                1 persona
-              </Dropdown.Item>
-              <Dropdown.Item option value="2">
-                2 personas
-              </Dropdown.Item>
-              <Dropdown.Item option value="3">
-                3 personas
-              </Dropdown.Item>
-              <Dropdown.Item option value="4">
-                4 personas
-              </Dropdown.Item>
-              <Dropdown.Item option value="5">
-                5 personas
-              </Dropdown.Item>
-              <Dropdown.Item option value="6">
-                6 personas
-              </Dropdown.Item>
-            </Dropdown.Menu>
-          </Dropdown> */}
-
+       
         <label>
           Ingresa fecha*:
           <input
@@ -192,6 +170,6 @@ export function Reservas() {
       </Form>
     </div>
   );
-}
+};
 
 export default Reservas;

@@ -13,6 +13,8 @@ import Blog from "./components/Blog/Blog";
 import ErrorPage from "./components/ErrorPage";
 import Layout from './components/Layout';
 import ReservaExitosa from './components/ReservaExitosa/ReservaExitosa';
+import Platos from "./components/Menu/Platos"
+import Categoria from "./components/Menu/Categorias"
 
 
 
