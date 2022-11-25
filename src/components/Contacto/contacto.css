@@ -1,0 +1,15 @@
+.form-contacto {
+    width: 100%;
+    margin-bottom: 70px;
+}
+
+.form-label{
+    font-size: small;
+}
+.texto-descripcion {
+    margin-left: 50px;
+    width: 90%;
+    font-size: small;
+    line-height: 25px;
+    font-weight: 300;
+  }
