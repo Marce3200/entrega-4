@@ -10,7 +10,7 @@ import Menu from "./components/Menu/Menu";
 import Reservas from "./components/Reservas/Reservas";
 import Contacto from "./components/Contacto/Contacto";
 import Blog from "./components/Blog/Blog";
-import ErrorPage from "./components/ErrorPage";
+import ErrorPage from "./components/ErrorPage/ErrorPage";
 import Layout from './components/Layout';
 import ReservaExitosa from './components/ReservaExitosa/ReservaExitosa';
 
