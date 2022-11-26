@@ -1,0 +1,36 @@
+{
+  "files": {
+    "main.css": "/static/css/main.c3fc7ffa.css",
+    "main.js": "/static/js/main.08b37b73.js",
+    "static/media/local.jpg": "/static/media/local.cac2cbb886b2bb504d4e.jpg",
+    "static/media/sushi1.jpeg": "/static/media/sushi1.e475a833316bb21f7614.jpeg",
+    "static/media/salmon2.jpg": "/static/media/salmon2.b79874eab44fdfd83208.jpg",
+    "static/media/sushi8.png": "/static/media/sushi8.4e5216fb0e5bfcbaeee5.png",
+    "static/media/california.jpg": "/static/media/california.2c8331f2438b6169f9a5.jpg",
+    "static/media/salmon.jpg": "/static/media/salmon.50b5f9b11d62dd7b3ce8.jpg",
+    "static/media/chef-2.jpg": "/static/media/chef-2.f9f595276358465b4822.jpg",
+    "static/media/sushi2.png": "/static/media/sushi2.34937fafb529c0da2572.png",
+    "static/media/chef-1.jpg": "/static/media/chef-1.cce35a5e169c057441ef.jpg",
+    "static/media/fondo.jpg": "/static/media/fondo.aca2ca4406b8e8454dc1.jpg",
+    "static/media/sushi4.png": "/static/media/sushi4.19e9b7ad2a6aa6f40ee3.png",
+    "static/media/sushi11.png": "/static/media/sushi11.8c1d96949d9c6986d808.png",
+    "static/media/sushi9.png": "/static/media/sushi9.36cf4acf77aa116ca286.png",
+    "static/media/sushi7.png": "/static/media/sushi7.e516982dc8f65320059b.png",
+    "static/media/50-premio.jpeg": "/static/media/50-premio.2b5d566adf8777a15fe0.jpeg",
+    "static/media/sushi6.png": "/static/media/sushi6.d83450c7cd5fecded886.png",
+    "static/media/home.jpg": "/static/media/home.5f9a6a9ccd6562911f4d.jpg",
+    "static/media/sushi10.jpeg": "/static/media/sushi10.59f884831772e6397275.jpeg",
+    "static/media/chef-3.jpg": "/static/media/chef-3.7a54abca652c651cd36e.jpg",
+    "static/media/img-premio.jpg": "/static/media/img-premio.323293d494e08814649d.jpg",
+    "static/media/logo.png": "/static/media/logo.60cea6d07f53ee1359e0.png",
+    "static/media/logo_byn.png": "/static/media/logo_byn.6b37f1075610371e3afd.png",
+    "static/media/logo_mini_2.png": "/static/media/logo_mini_2.8bf2f608ec535f641adc.png",
+    "index.html": "/index.html",
+    "main.c3fc7ffa.css.map": "/static/css/main.c3fc7ffa.css.map",
+    "main.08b37b73.js.map": "/static/js/main.08b37b73.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.c3fc7ffa.css",
+    "static/js/main.08b37b73.js"
+  ]
+}
