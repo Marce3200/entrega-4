@@ -8,36 +8,37 @@ import { useNavigate } from "react-router-dom";
 import swal from "sweetalert";
 
 export function Reservas() {
-  const [fechasOcupadas, setFechasOcupadas] = useState([]);
+  
   const [inputs, setInputs] = useState({});
   const navigate = useNavigate();
+  const [fechasOcupadas, setFechasOcupadas] = useState([]);
 
-  //obtiene nombre y value, los almacena y lo transforma en objeto y eso alimenta handleSubmit
   const handleChange = (event) => {
     const name = event.target.name;
     const value = event.target.value;
     setInputs((values) => ({ ...values, [name]: value }));
   };
 
-  //manda datos a firestore
   const handleSubmit = async (event) => {
     event.preventDefault();
     inputs.cantidadPersonas = !inputs.cantidadPersonas
       ? "1"
       : inputs.cantidadPersonas;
 
+      //traigo los datos de reservas, los guardo en arrFechas
     const readData = async (coleccion) => {
       const datos = await getDocs(collection(db, coleccion));
 
       const arrFechas = datos.docs.map((doc) => doc.data().fechaReserva);
-
-      //no funciona setFechasOcupados, no ref, si copia ...arrFechas
+      //no funciona setFechasOcupados, deberia guardarse ahi arrFechas
       await setFechasOcupadas([...arrFechas]);
     };
+
+    //comparo si fechaReserva = fechaOcupada
     await readData("reservas");
-	console.log(fechasOcupadas);
+    console.log(fechasOcupadas);
     let resultado = fechasOcupadas.find((fecha) => {
-		console.log(fecha);
+      console.log(fecha);
       return fecha === inputs.fechaReserva;
     });
     if (resultado) {
@@ -47,7 +48,7 @@ export function Reservas() {
     } else {
       console.log(fechasOcupadas);
       console.log(inputs.fechaReserva);
-	  console.log(resultado);
+      console.log(resultado);
 
       await addDoc(collection(db, "reservas"), {
         nombreCliente: inputs.nombreCliente,
@@ -109,7 +110,7 @@ export function Reservas() {
           />
         </Form.Group>
 
-        <Form.Group className="mb-3">
+        <Form.Group className="mb-3"  >
           <Form.Label>Telefono* (+56)</Form.Label>
           <Form.Control
             id="telefono"
@@ -122,7 +123,7 @@ export function Reservas() {
           <Form.Text className="text-muted">Formato: 931111111</Form.Text>
         </Form.Group>
 
-        <Form.Group controlId="exampleForm.ControlSelect1">
+        <Form.Group controlId="exampleForm.ControlSelect1" >
           <Form.Label>Cantidad de personas*</Form.Label>
           <Form.Control
             as="select"
@@ -151,17 +152,17 @@ export function Reservas() {
           />
         </label>
         <Form.Text className="text-muted">(*) Campos obligatorios</Form.Text>
-        <Button type="submit">Reservar</Button>
+        <Button type="submit" className="button-enviar" size="sm" variant="dark">Reservar</Button>
 
         <Form.Text className="text-muted">
           No te preocupes, nunca compartiremos tu datos con terceros.
         </Form.Text>
 
-        <div className=" lg gap-2">
+        {/* <div className=" lg gap-2">
           <Button variant="outline-info" size="lg">
             Lista de Espera
           </Button>
-        </div>
+        </div> */}
       </Form>
     </div>
   );
