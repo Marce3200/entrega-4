@@ -7,35 +7,30 @@ import "./contacto.css";
 import swal from "sweetalert";
 
 export default function Contacto() {
-  const [ formValues, setFormValues ] = useState( {
+  const [formValues, setFormValues] = useState({
     nombre: "",
     mail: "",
     mensaje: "",
-  } );
+  });
   async function handleSubmit() {
-    // event.preventDefault();
-    console.log( formValues );
+    console.log(formValues);
 
-    //
-    swal(
-      "Hemos recibido tu mensaje!"
-    );
-    try {
-      const docRef = await addDoc( collection( db, "contacto" ), formValues );
-      window.location.reload()
-      console.log( "Document written with ID: ", docRef.id );
-    } catch ( e ) {
-      console.error( "Error adding document: ", e );
-    }
+    swal("Hemos recibido tu mensaje!");
     
+    try {
+      const docRef = await addDoc(collection(db, "contacto"), formValues);
+      window.location.reload();
+      console.log("Document written with ID: ", docRef.id);
+    } catch (e) {
+      console.error("Error adding document: ", e);
+    }
   }
-  
 
-  function handleFormChange( event ) {
+  function handleFormChange(event) {
     const { target } = event;
     const { name, value } = target;
-    const newValues = { ...formValues, [ name ]: value };
-    setFormValues( newValues );
+    const newValues = { ...formValues, [name]: value };
+    setFormValues(newValues);
   }
   return (
     <div className="container row">
@@ -59,11 +54,10 @@ export default function Contacto() {
             <Form.Label className="form-label">Nombre*</Form.Label>
             <Form.Control
               size="sm"
-              // type="name"
               type="text"
               name="nombre"
-              value={ formValues.nombre || "" }
-              onChange={ handleFormChange }
+              value={formValues.nombre || ""}
+              onChange={handleFormChange}
               placeholder=""
             />
           </Form.Group>
@@ -72,8 +66,8 @@ export default function Contacto() {
             <Form.Control
               type="email"
               name="mail"
-              value={ formValues.mail || "" }
-              onChange={ handleFormChange }
+              value={formValues.mail || ""}
+              onChange={handleFormChange}
               size="sm"
               placeholder="name@example.com"
             />
@@ -85,17 +79,22 @@ export default function Contacto() {
             <Form.Control
               type="text"
               name="mensaje"
-              value={ formValues.mensaje || "" }
-              onChange={ handleFormChange }
+              value={formValues.mensaje || ""}
+              onChange={handleFormChange}
               placeholder=""
               size="sm"
               as="textarea"
-              rows={ 3 }
+              rows={3}
             />
           </Form.Group>
         </Form>
         <div className="container-boton">
-          <Button className="button-enviar" size="sm" variant="dark" onClick={ handleSubmit } >
+          <Button
+            className="button-enviar"
+            size="sm"
+            variant="dark"
+            onClick={handleSubmit}
+          >
             Enviar
           </Button>
         </div>

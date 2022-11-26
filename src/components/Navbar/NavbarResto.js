@@ -10,7 +10,7 @@ const NavbarResto = () => {
     <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
       <Container>
         <Navbar.Brand href="/">
-          <img className="mini-logo" src={miniLogo} />
+          <img className="mini-logo" src={miniLogo} alt="logo restaurant" />
           </Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">

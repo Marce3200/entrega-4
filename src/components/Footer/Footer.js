@@ -9,7 +9,7 @@ function Footer() {
         <div className="row contenedor-footer">
           {/* Column1 */}
           <div className="col">
-          <img className="logobyn" src={logobyn} />
+          <img className="logobyn" src={logobyn} alt="logo"/>
           </div>
           {/* Column2 */}
           <div className="col">

@@ -1,6 +1,6 @@
 import React from 'react'
 import "./ReservaExitosa.css"
-import Contacto from "../Contacto/Contacto"
+
 
 const ReservaExitosa = () => {
   return (
@@ -13,7 +13,7 @@ const ReservaExitosa = () => {
         Se ha realizado tu reserva <br/>con exito</p>
         <p className="texto-descripcion-reserva pt-2 p-5"> Felicidades, hemos registrado tu reserva en nuestra base de datos. 
           Recibirás un mail con la información de tu reserva a la brevedad.<br/>
-           <span className='adress'> Te esperamos en Providencia 2883 </span>
+           <span className='adress'> Te esperamos en Providencia 2463 </span>
          </p>
 
         
