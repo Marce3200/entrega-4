@@ -1,24 +1,24 @@
 // import React from "react";
 
-// const Categoria = ({ categories, filterItems, activeCategory }) => {
-//   return (
-//     <div className="btn-container">
-//       {categories.map((category, index) => {
-//         return (
-//           <button
-//             type="button"
-//             className={`${
-//               activeCategory === category ? "filter-btn active" : "filter-btn"
-//             }`}
-//             key={index}
-//             onClick={() => filterItems(category)}
-//           >
-//             {category}
-//           </button>
-//         );
-//       })}
-//     </div>
-//   );
-// };
+//  const Categorias = ({ categorias, filterItems, categoriaElegida }) => {
+//    return (
+//      <div className="btn-container">
+//        {categorias.map((categoria, index) => {
+//          return (
+//            <button
+//              type="button"
+//              className={`${
+//               categoriaElegida === categoria ? "filter-btn active" : "filter-btn"
+//              }`}
+//              key={index}
+//              onClick={() => filterItems(categoria)}
+//            >
+//              {categoria}
+//            </button>
+//          );
+//        })}
+//      </div>
+//    );
+//  };
 
-// export default Categoria;
+//  export default Categorias;

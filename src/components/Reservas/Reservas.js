@@ -10,32 +10,33 @@ import "../Reservas/Reservas.css";
 import { Col, Container, Row } from "react-bootstrap";
 
 export function Reservas() {
-  const [fechasOcupadas, setFechasOcupadas] = useState([]);
+  
   const [inputs, setInputs] = useState({});
   const navigate = useNavigate();
+  const [fechasOcupadas, setFechasOcupadas] = useState([]);
 
-  //obtiene nombre y value, los almacena y lo transforma en objeto y eso alimenta handleSubmit
   const handleChange = (event) => {
     const name = event.target.name;
     const value = event.target.value;
     setInputs((values) => ({ ...values, [name]: value }));
   };
 
-  //manda datos a firestore
   const handleSubmit = async (event) => {
     event.preventDefault();
     inputs.cantidadPersonas = !inputs.cantidadPersonas
       ? "1"
       : inputs.cantidadPersonas;
 
+      //traigo los datos de reservas, los guardo en arrFechas
     const readData = async (coleccion) => {
       const datos = await getDocs(collection(db, coleccion));
 
       const arrFechas = datos.docs.map((doc) => doc.data().fechaReserva);
-
-      //no funciona setFechasOcupados, no ref, si copia ...arrFechas
+      //no funciona setFechasOcupados, deberia guardarse ahi arrFechas
       await setFechasOcupadas([...arrFechas]);
     };
+
+    //comparo si fechaReserva =
     await readData("reservas");
     console.log(fechasOcupadas);
     let resultado = fechasOcupadas.find((fecha) => {
