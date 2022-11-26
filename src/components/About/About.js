@@ -1,7 +1,7 @@
 import React from "react";
 
 import "../About/about.css"
-import Button from "react-bootstrap/Button";
+
 import Card from "react-bootstrap/Card";
 
 import premio from "../Home/img/50-premio.jpeg";
@@ -14,8 +14,9 @@ import chef3 from "../Home/img/chef-3.jpg"
 
 const About = () => {
   return (
-    <div>
-    <div className="container row">
+    <div className="container">
+    <div className=" row">
+      
       <div className="col">
         <img className="foto-premio" src={premio} />
       </div>
@@ -38,7 +39,7 @@ const About = () => {
       </div>
     </div>
 
-    <div className="container row">
+    <div className="container  row">
     <div className="col">
         <p className="titulo-home">
           Local ubicado en el corazón de Providencia
@@ -60,13 +61,13 @@ const About = () => {
       </div>
       </div>
 
-
+    <div>
       <p className="titulo-home">
-          Chef Reconocidos Internacionalmente
+          Chefs Reconocidos Internacionalmente
         </p>
-      <div className="cards-favoritos container">
+      <div className="cards-chefs">
        
-        <Card className="card-favorito" style={{ width: "18rem" }}>
+        <Card className="card-chef" style={{ width: "18rem" }}>
           <Card.Img className="foto-favorito" variant="top" src={chef1} />
           <Card.Body>
             <Card.Title className="titulo-card">Emiko Lo San Tee</Card.Title>
@@ -74,11 +75,11 @@ const About = () => {
               Some quick example text to build on the card title and make up the
               bulk of the card's content.
             </Card.Text>
-            <Button className="button-home" variant="dark">Go somewhere</Button>
+           
           </Card.Body>
         </Card>
 
-        <Card className="card-favorito" style={{ width: "18rem" }}>
+        <Card className="card-chef" style={{ width: "18rem" }}>
           <Card.Img className="foto-favorito" variant="top" src={chef2} />
           <Card.Body>
             <Card.Title className="titulo-card">Yu tang Shu</Card.Title>
@@ -86,11 +87,11 @@ const About = () => {
               Some quick example text to build on the card title and make up the
               bulk of the card's content.
             </Card.Text>
-            <Button className="button-home" variant="dark">Go somewhere</Button>
+            
           </Card.Body>
         </Card>
         
-        <Card className="card-favorito" style={{ width: "18rem" }}>
+        <Card className="card-chef" style={{ width: "18rem" }}>
           <Card.Img className="foto-favorito" variant="top" src={chef3} />
           <Card.Body className="card-body">
             <Card.Title className="titulo-card" >Lisa Wu.</Card.Title>
@@ -98,11 +99,11 @@ const About = () => {
               Some quick example text to build on the card title and make up the
               bulk of the card's content.
             </Card.Text>
-            <Button className="button-home" variant="dark">Go somewhere</Button>
+            
           </Card.Body>
         </Card>
       </div>
-
+      </div>
     </div>
   );
 };

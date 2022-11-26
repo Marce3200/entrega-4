@@ -6,6 +6,8 @@ import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import { useNavigate } from "react-router-dom";
 import swal from "sweetalert";
+import "../Reservas/Reservas.css";
+import { Col, Container, Row } from "react-bootstrap";
 
 export function Reservas() {
   const [fechasOcupadas, setFechasOcupadas] = useState([]);
@@ -35,9 +37,9 @@ export function Reservas() {
       await setFechasOcupadas([...arrFechas]);
     };
     await readData("reservas");
-	console.log(fechasOcupadas);
+    console.log(fechasOcupadas);
     let resultado = fechasOcupadas.find((fecha) => {
-		console.log(fecha);
+      console.log(fecha);
       return fecha === inputs.fechaReserva;
     });
     if (resultado) {
@@ -47,7 +49,7 @@ export function Reservas() {
     } else {
       console.log(fechasOcupadas);
       console.log(inputs.fechaReserva);
-	  console.log(resultado);
+      console.log(resultado);
 
       await addDoc(collection(db, "reservas"), {
         nombreCliente: inputs.nombreCliente,
@@ -71,99 +73,120 @@ export function Reservas() {
 
   //onsubmit ejecuta funcion que manda datos a firestore
   return (
-    <div className="reservacion">
-      <h1>RESERVAS</h1>
-      <Form onSubmit={handleSubmit}>
-        <Form.Group className="mb-3 ">
-          <Form.Label>Nombre*</Form.Label>
-          <Form.Control
-            //   id="name"
-            type="text"
-            name="nombreCliente"
-            value={inputs.nombreCliente || ""}
-            onChange={handleChange}
-            placeholder="escriba el nombre"
-          />
-        </Form.Group>
+    <Container>
+      <Row>
+        <p className="titulo-home">Reservas</p>
+        <Col className="d-flex justify-content-center">
+          <Form className="form" onSubmit={handleSubmit}>
+            <Form.Group className="mb-3 ">
+              <Form.Label>Nombre*</Form.Label>
+              <Form.Control
+                //   id="name"
+                type="text"
+                name="nombreCliente"
+                value={inputs.nombreCliente || ""}
+                onChange={handleChange}
+                placeholder="escriba el nombre"
+                size="sm"
+              />
+            </Form.Group>
 
-        <Form.Group className="mb-3">
-          <Form.Label>Apellido*</Form.Label>
-          <Form.Control
-            //   id="apellido"
-            type="text"
-            name="apellidoCliente"
-            value={inputs.apellidoCliente || ""}
-            onChange={handleChange}
-            placeholder="escriba el apellido"
-          />
-        </Form.Group>
+            <Form.Group className="mb-3">
+              <Form.Label>Apellido*</Form.Label>
+              <Form.Control
+                //   id="apellido"
+                type="text"
+                name="apellidoCliente"
+                value={inputs.apellidoCliente || ""}
+                onChange={handleChange}
+                placeholder="escriba el apellido"
+                size="sm"
+              />
+            </Form.Group>
 
-        <Form.Group className="mb-3">
-          <Form.Label>Mail*</Form.Label>
-          <Form.Control
-            type="email"
-            name="mail"
-            value={inputs.mail || ""}
-            onChange={handleChange}
-            placeholder="Enter email"
-          />
-        </Form.Group>
+            <Form.Group className="mb-3">
+              <Form.Label>Mail*</Form.Label>
+              <Form.Control
+                type="email"
+                name="mail"
+                value={inputs.mail || ""}
+                onChange={handleChange}
+                placeholder="Enter email"
+                size="sm"
+              />
+            </Form.Group>
 
-        <Form.Group className="mb-3">
-          <Form.Label>Telefono* (+56)</Form.Label>
-          <Form.Control
-            id="telefono"
-            type="tel"
-            name="telefono"
-            value={inputs.telefono || ""}
-            onChange={handleChange}
-            placeholder=""
-          />
-          <Form.Text className="text-muted">Formato: 931111111</Form.Text>
-        </Form.Group>
+            <Form.Group className="mb-3">
+              <Form.Label>Telefono* (+56)</Form.Label>
+              <Form.Control
+                id="telefono"
+                type="tel"
+                name="telefono"
+                value={inputs.telefono || ""}
+                onChange={handleChange}
+                placeholder=""
+                size="sm"
+              />
+              <Form.Text className="text-muted">Formato: 931111111</Form.Text>
+            </Form.Group>
+            <div className="row">
+              <Form.Group
+                className="col"
+                controlId="exampleForm.ControlSelect1"
+              >
+                <Form.Label>Cantidad de personas*</Form.Label>
+                <Form.Control
+                  as="select"
+                  onChange={handleChange}
+                  name="cantidadPersonas"
+                  value={inputs.cantidadPersonas || "1"}
+                  size="sm"
+                >
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                  <option value="6">6</option>
+                </Form.Control>
+              </Form.Group>
 
-        <Form.Group controlId="exampleForm.ControlSelect1">
-          <Form.Label>Cantidad de personas*</Form.Label>
-          <Form.Control
-            as="select"
-            onChange={handleChange}
-            name="cantidadPersonas"
-            value={inputs.cantidadPersonas || "1"}
-          >
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
-            <option value="6">6</option>
-          </Form.Control>
-        </Form.Group>
+              <div className="col">
+                Ingresa fecha*:
+                <input
+                  id="fechaReserva"
+                  type="datetime-local"
+                  name="fechaReserva"
+                  value={inputs.fechaReserva || ""}
+                  onChange={handleChange}
+                  placeholder="escriba el mail"
+                />
+              </div>
+            </div>
 
-        <label>
-          Ingresa fecha*:
-          <input
-            id="fechaReserva"
-            type="datetime-local"
-            name="fechaReserva"
-            value={inputs.fechaReserva || ""}
-            onChange={handleChange}
-            placeholder="escriba el mail"
-          />
-        </label>
-        <Form.Text className="text-muted">(*) Campos obligatorios</Form.Text>
-        <Button type="submit">Reservar</Button>
+            <div className="row">
+              <Form.Text className="text-muted text-center">
+                (*) Campos obligatorios <br />
+                No te preocupes, nunca compartiremos tu datos con terceros.
+              </Form.Text>
 
-        <Form.Text className="text-muted">
-          No te preocupes, nunca compartiremos tu datos con terceros.
-        </Form.Text>
+              <Button
+                className="button-reserva mt-4"
+                type="submit"
+                variant="dark"
+                size="sm"
+              >
+                Reservar
+              </Button>
 
-        <div className=" lg gap-2">
-          <Button variant="outline-info" size="lg">
-            Lista de Espera
-          </Button>
-        </div>
-      </Form>
-    </div>
+              <Button className="button-reserva" variant="dark" size="sm">
+                Lista de Espera
+              </Button>
+            </div>
+          </Form>
+        </Col>
+      </Row>
+    </Container>
   );
 }
 
