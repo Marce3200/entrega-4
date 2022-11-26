@@ -3,7 +3,7 @@ import "../ErrorPage/errorpage.css"
 
 const ErrorPage = () => {
   return (
-    <div className="contenedor-exito row ">
+    <div className="contenedor-error row ">
       
       
       <div className="text-center  mensaje col-2 container">

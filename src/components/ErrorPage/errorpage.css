@@ -1,8 +1,8 @@
-.contenedor-exito {
-    background-image: url(../Home/img/fondo.jpg);
+.contenedor-error {
+    background-color: rgb(180, 179, 179);
     background-size: cover;
     min-height: 100vh;
-    background-position: 25% 60%;
+    
   }
   
   .titulo-re {
@@ -15,7 +15,7 @@
   .mensaje {
       margin-top: 150px;
     width: 60vh;
-    height: 55vh;
+    height: 40vh;
     background-color: rgb(227, 224, 224);
   }
   

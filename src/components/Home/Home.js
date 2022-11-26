@@ -21,7 +21,7 @@ const Home = () => {
             Prueba Nigiri y enamórate otra vez.
           </p>
           <div className="clase-button">
-            <a href="../Menu/Menu.js">
+            <a href="../Menu/Menu.j">
               <Button className="button-home" variant="dark">Menú</Button>
             </a>
           </div>
