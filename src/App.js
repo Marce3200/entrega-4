@@ -5,7 +5,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 // import Rutas from './Rutas'
 
 import Home from "./components/Home/Home";
-import About from "./components/About";
+import About from "./components/About/About";
 import Menu from "./components/Menu/Menu";
 import Reservas from "./components/Reservas/Reservas";
 import Contacto from "./components/Contacto/Contacto";
