@@ -1,0 +1,26 @@
+.container{
+    margin-top: 60px;
+}
+
+.titulo-home {
+    font-weight: 100;
+    margin-top: 30px;
+    text-align: center;
+    font-size: 30px;
+
+  }
+
+  .texto-descripcion {
+    margin-top: 30px;
+    font-size: small;
+    line-height: 25px;
+    font-weight: 300;
+    
+  }
+
+  .foto-premio{
+    width: 80vh;
+    object-fit:contain;
+    margin-bottom: 40px;
+    
+  }
