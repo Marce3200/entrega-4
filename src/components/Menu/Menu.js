@@ -1,4 +1,5 @@
 import React from "react";
+import "../Menu/menu.css"
 
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
@@ -19,10 +20,10 @@ import sushi11 from "./imgMenu/sushi11.png";
 const Menu = () => {
   return (
     <div className="header container-fluid ">
-      <p className="titulo-home">MENU</p>
+      <p className="titulo-home">Menú</p>
       <div className="cards-favoritos container">
         <Card className="card-favorito" style={{ width: "18rem" }}>
-          <Card.Img className="foto-favorito" variant="top" src={sushi1} />
+          <Card.Img className="foto-menu" variant="top" src={sushi1} />
           <Card.Body>
             <Card.Title className="titulo-card">California Roll</Card.Title>
             <Card.Text className="text-card">
@@ -34,7 +35,7 @@ const Menu = () => {
         </Card>
 
         <Card className="card-favorito" style={{ width: "18rem" }}>
-          <Card.Img className="foto-favorito" variant="top" src={sushi2} />
+          <Card.Img className="foto-menu" variant="top" src={sushi2} />
           <Card.Body>
             <Card.Title className="titulo-card">Degustación del día</Card.Title>
             <Card.Text className="text-card">
@@ -46,7 +47,7 @@ const Menu = () => {
         </Card>
 
         <Card className="card-favorito" style={{ width: "18rem" }}>
-          <Card.Img className="foto-favorito" variant="top" src={sushi6} />
+          <Card.Img className="foto-menu" variant="top" src={sushi6} />
           <Card.Body>
             <Card.Title className="titulo-card">Gorrito Japonés</Card.Title>
             <Card.Text className="text-card">
@@ -59,7 +60,7 @@ const Menu = () => {
         </Card>
 
         <Card className="card-favorito" style={{ width: "18rem" }}>
-          <Card.Img className="foto-favorito" variant="top" src={sushi7} />
+          <Card.Img className="foto-menu" variant="top" src={sushi7} />
           <Card.Body>
             <Card.Title className="titulo-card">Gyosas de Bambi</Card.Title>
             <Card.Text className="text-card">
@@ -70,7 +71,7 @@ const Menu = () => {
         </Card>
 
         <Card className="card-favorito" style={{ width: "18rem" }}>
-          <Card.Img className="foto-favorito" variant="top" src={sushi8} />
+          <Card.Img className="foto-menu" variant="top" src={sushi8} />
           <Card.Body>
             <Card.Title className="titulo-card">Hermanitos Envueltos</Card.Title>
             <Card.Text className="text-card">
@@ -81,7 +82,7 @@ const Menu = () => {
           </Card.Body>
         </Card>
         <Card className="card-favorito" style={{ width: "18rem" }}>
-          <Card.Img className="foto-favorito" variant="top" src={sushi9} />
+          <Card.Img className="foto-menu" variant="top" src={sushi9} />
           <Card.Body>
             <Card.Title className="titulo-card">Sushi Romano</Card.Title>
             <Card.Text className="text-card">
@@ -95,7 +96,7 @@ const Menu = () => {
         </Card>
 
         <Card className="card-favorito" style={{ width: "18rem" }}>
-          <Card.Img className="foto-favorito" variant="top" src={sushi10} />
+          <Card.Img className="foto-menu" variant="top" src={sushi10} />
           <Card.Body>
             <Card.Title className="titulo-card">Dulce Corazón</Card.Title>
             <Card.Text className="text-card">
@@ -106,7 +107,7 @@ const Menu = () => {
         </Card>
 
         <Card className="card-favorito" style={{ width: "18rem" }}>
-          <Card.Img className="foto-favorito" variant="top" src={sushi11} />
+          <Card.Img className="foto-menu" variant="top" src={sushi11} />
           <Card.Body className="card-body">
             <Card.Title className="titulo-card">Gohan Han Han </Card.Title>
             <Card.Text className="text-card">
@@ -117,7 +118,7 @@ const Menu = () => {
           </Card.Body>
         </Card>
         <Card className="card-favorito" style={{ width: "18rem" }}>
-          <Card.Img className="foto-favorito" variant="top" src={sushi4} />
+          <Card.Img className="foto-menu" variant="top" src={sushi4} />
           <Card.Body className="card-body">
             <Card.Title className="titulo-card">Completamente Sushi</Card.Title>
             <Card.Text className="text-card">
