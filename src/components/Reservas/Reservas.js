@@ -182,9 +182,7 @@ export function Reservas() {
                 Reservar
               </Button>
 
-              <Button className="button-reserva" variant="dark" size="sm">
-                Lista de Espera
-              </Button>
+              
             </div>
           </Form>
         </Col>
