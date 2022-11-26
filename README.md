@@ -3,7 +3,7 @@ Secciones Contacto, Reservas y Blog conectadas a Firestore de Firebase.
 Para correr el sitio, luego de clonarlo ejecute npm i en la terminal para descargar las dependencias y npm start para visualizarlo el localhost.
 
 
-
+[img](./src/assets/TEMPLATE.jpeg)
 
 
 

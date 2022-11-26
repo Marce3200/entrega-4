@@ -17,7 +17,7 @@ function SendComment() {
         email: email,
       });
       console.log("Guardamos el comentario");
-      window.location.reload()
+      window.location.reload();
     } catch (error) {
       console.log("Error escribiendo tu mensaje", error);
     }

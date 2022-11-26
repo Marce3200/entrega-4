@@ -1,5 +1,6 @@
 import "./home.css";
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import logo from "./img/logo.png";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
@@ -19,13 +20,6 @@ const Home = () => {
             Mejora tus hábitos, mejora el mundo, mejora tu paladar. <br />
             Prueba Nigiri y enamórate otra vez.
           </p>
-          <div className="clase-button">
-            <a href="../Menu/Menu.js">
-              <Button className="button-home" variant="dark">
-                Menú
-              </Button>
-            </a>
-          </div>
         </div>
       </div>
       <p className="titulo-home">Nuestros Especiales de la Casa</p>
@@ -35,7 +29,8 @@ const Home = () => {
           <Card.Body>
             <Card.Title className="titulo-card">California Roll</Card.Title>
             <Card.Text className="text-card">
-              Relleno con arroz y unas ramitas verdes, impresiona su simpleza y sabor.
+              Relleno con arroz y unas ramitas verdes, impresiona su simpleza y
+              sabor.
             </Card.Text>
           </Card.Body>
         </Card>
@@ -45,7 +40,8 @@ const Home = () => {
           <Card.Body>
             <Card.Title className="titulo-card">Ebi Oriental</Card.Title>
             <Card.Text className="text-card">
-              El samón molido es su ingrediente principal, con unas pelotitas naranjas que lo invitan a sumergirse en la experiencia culinaria,
+              El samón molido es su ingrediente principal, con unas pelotitas
+              naranjas que lo invitan a sumergirse en la experiencia culinaria,
               y porqué no, tambien ramitas verdes.
             </Card.Text>
           </Card.Body>
@@ -56,7 +52,8 @@ const Home = () => {
           <Card.Body className="card-body">
             <Card.Title className="titulo-card">Sake Furay</Card.Title>
             <Card.Text className="text-card">
-              Envuelto en salmón del Mar Negro, esta especialidad de la casa es la favorita de Chef.
+              Envuelto en salmón del Mar Negro, esta especialidad de la casa es
+              la favorita de Chef.
             </Card.Text>
           </Card.Body>
         </Card>

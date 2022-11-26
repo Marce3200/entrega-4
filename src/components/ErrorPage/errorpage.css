@@ -1,0 +1,32 @@
+.contenedor-error {
+    background-color: rgb(180, 179, 179);
+    background-size: cover;
+    min-height: 100vh;
+    
+  }
+  
+  .titulo-re {
+    font-weight: 100;
+    padding-top: 100px;
+    text-align: center;
+    font-size: 30px;
+  }
+  
+  .mensaje {
+      margin-top: 150px;
+    width: 60vh;
+    height: 40vh;
+    background-color: rgb(227, 224, 224);
+  }
+  
+  .texto-descripcion-reserva {
+    font-weight: 100;
+    font-size: small;
+    line-height: 25px;
+  }
+  
+  .adress {
+    margin-top: 20px;
+    font-weight: 400;
+  }
+  

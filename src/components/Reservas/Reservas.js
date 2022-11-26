@@ -87,7 +87,7 @@ export function Reservas() {
                 name="nombreCliente"
                 value={inputs.nombreCliente || ""}
                 onChange={handleChange}
-                placeholder="escriba el nombre"
+                placeholder=""
                 size="sm"
               />
             </Form.Group>
@@ -100,7 +100,7 @@ export function Reservas() {
                 name="apellidoCliente"
                 value={inputs.apellidoCliente || ""}
                 onChange={handleChange}
-                placeholder="escriba el apellido"
+                placeholder=""
                 size="sm"
               />
             </Form.Group>
@@ -112,7 +112,7 @@ export function Reservas() {
                 name="mail"
                 value={inputs.mail || ""}
                 onChange={handleChange}
-                placeholder="Enter email"
+                placeholder=""
                 size="sm"
               />
             </Form.Group>

@@ -14,10 +14,13 @@ import sushi11 from "./imgMenu/sushi11.png";
 
 const Menu = () => {
   return (
-    <div className="header container-fluid ">
-      
-      <p className="titulo-home">Menú <br/>
-      Todos nuestros platos están acompañados del vino de casa</p>
+    <div className="header container-fluid text-center">
+      <p className="titulo-home">Menú</p>
+      <p className="texto-descripcion">
+        {" "}
+        Todos nuestros platos están acompañados del vino de casa o agua de
+        niebla filtrada, a su elección
+      </p>
       <div className="cards-favoritos container">
         <Card className="card-favorito" style={{ width: "18rem" }}>
           <Card.Img className="foto-menu" variant="top" src={sushi1} />

@@ -16,7 +16,7 @@ export default function Contacto() {
     console.log(formValues);
 
     swal("Hemos recibido tu mensaje!");
-    
+
     try {
       const docRef = await addDoc(collection(db, "contacto"), formValues);
       window.location.reload();
@@ -44,7 +44,8 @@ export default function Contacto() {
           Minsu Bang.
         </p>
         <p className="texto-descripcion-1">
-          Estamos ubicados en Providencia 2463 Santiago, Chile
+          Estamos ubicados en Providencia 2463 Santiago, Chile <br />
+          info@nigirisushihouse.cl
         </p>
       </div>
       <div className="col">

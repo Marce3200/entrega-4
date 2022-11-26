@@ -64,7 +64,8 @@ const About = () => {
             <Card.Body>
               <Card.Title className="titulo-card">Emiko Lo San Tee</Card.Title>
               <Card.Text className="text-card">
-                Lejos el mejor Chef de comida Japonesa.<br/>
+                Lejos el mejor Chef de comida Japonesa.
+                <br />
                 Todos creen que es japnonés, pero no es así.
               </Card.Text>
             </Card.Body>
@@ -75,9 +76,8 @@ const About = () => {
             <Card.Body>
               <Card.Title className="titulo-card">Yu tang Shu</Card.Title>
               <Card.Text className="text-card">
-                Es muy buen Chef, pero no siempre llega a la hora. <br/>
+                Es muy buen Chef, pero no siempre llega a la hora. <br />
                 Sin embargo sus sabores son inigualables.
-
               </Card.Text>
             </Card.Body>
           </Card>
@@ -87,8 +87,8 @@ const About = () => {
             <Card.Body className="card-body">
               <Card.Title className="titulo-card">Lisa Wu.</Card.Title>
               <Card.Text className="text-card">
-                Chef especialista en innovaciones culinarias.
-                Se dice que fue la creadora de la propuesta Completamente Sushi.
+                Chef especialista en innovaciones culinarias. Se dice que fue la
+                creadora de la propuesta Completamente Sushi.
               </Card.Text>
             </Card.Body>
           </Card>
