@@ -153,8 +153,10 @@ export function Reservas() {
               </Form.Group>
 
               <div className="col">
-                Ingresa fecha*:
+              <Form.Label>Ingresa fecha*:</Form.Label>
+                
                 <input
+                className="input-fecha"
                   id="fechaReserva"
                   type="datetime-local"
                   name="fechaReserva"
