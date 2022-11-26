@@ -1,3 +1,13 @@
+Proyecto Restaurant desarrollado con NodeJS, React y JavaScript.
+Secciones Contacto, Reservas y Blog conectadas a Firestore de Firebase.
+Para correr el sitio, luego de clonarlo ejecute npm i en la terminal para descargar las dependencias y npm start para visualizarlo el localhost.
+
+
+
+
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
