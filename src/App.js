@@ -12,6 +12,9 @@ import Contacto from "./components/Contacto/Contacto";
 import Blog from "./components/Blog/Blog";
 import ErrorPage from "./components/ErrorPage";
 import Layout from './components/Layout';
+import ReservaExitosa from './components/ReservaExitosa/ReservaExitosa';
+import Platos from "./components/Menu/Platos"
+import Categoria from "./components/Menu/Categorias"
 
 
 
@@ -26,6 +29,7 @@ function App() {
       <Route path="/about" element={<About />} />
       <Route path="/menu" element={<Menu />} />
       <Route path="/reservas" element={<Reservas />} />
+      <Route path="/reserva-exitosa" element={<ReservaExitosa />} />
       <Route path="/contacto" element={<Contacto />} />
       <Route path="/blog" element={<Blog />} />
       <Route path="*" element={<ErrorPage />} /> 

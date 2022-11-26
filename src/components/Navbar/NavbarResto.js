@@ -2,7 +2,7 @@ import Container from "react-bootstrap/Container";
 import "./navbar.css";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
-import NavDropdown from "react-bootstrap/NavDropdown";
+
 import miniLogo from "../Home/img/logo_mini_2.png"
 
 const NavbarResto = () => {
@@ -22,9 +22,7 @@ const NavbarResto = () => {
           </Nav>
           <Nav>
             <Nav.Link href="/contacto">Contacto</Nav.Link>
-            {/* <Nav.Link eventKey={2} href="#memes">
-              Dank memes
-            </Nav.Link> */}
+          
           </Nav>
         </Navbar.Collapse>
       </Container>
