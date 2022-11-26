@@ -34,7 +34,7 @@ export function Reservas() {
       await setFechasOcupadas([...arrFechas]);
     };
 
-    //comparo si fechaReserva = fechaOcupada
+    //comparo si fechaReserva =
     await readData("reservas");
     console.log(fechasOcupadas);
     let resultado = fechasOcupadas.find((fecha) => {
