@@ -1,14 +1,14 @@
 import React from "react";
 import { useState } from "react";
 import { db } from "../Firestore";
-import { collection, addDoc , getDocs} from "firebase/firestore";
+import { collection, addDoc, getDocs } from "firebase/firestore";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import { useNavigate } from "react-router-dom";
 import swal from "sweetalert";
 
-
 export function Reservas() {
+  const [fechasOcupadas, setFechasOcupadas] = useState([]);
   const [inputs, setInputs] = useState({});
   const navigate = useNavigate();
 
@@ -26,50 +26,45 @@ export function Reservas() {
       ? "1"
       : inputs.cantidadPersonas;
 
-	  //para traer datos de firestore
-	  const [fechasTomadas, setFechasTomadas] = React.useState([]);
+    const readData = async (coleccion) => {
+      const datos = await getDocs(collection(db, coleccion));
 
-	  React.useEffect(() => {
-		  try {
-			  const readData = async (coleccion) => {
-				  const datos = await getDocs(collection(db, coleccion));
-				  //para agregar id a los props
-				  const arrFechas = datos.docs.map((doc) =>
-					  Object.assign(doc.data(), { id: doc.id })
-				  );
-				  // const arrDocumentos = datos.docs.map(doc => (doc.data()));
-				  setFechasTomadas(arrFechas);
-			  };
-			  readData('fechas');
-		  } catch (error) {
-			  console.error(error);
-		  }
-	  }, []);
-	  //primero traer los datos con get Doc para rescatar fechas. cambiar inputs
-	  let resultado = arrFechas.map(fecha) => fecha === inputs.fechaReserva;
-	  if (resultado.includes(true)) {
-		const mostrarAlerta =()=>{
-			swal("La fecha elegida esta ocupada, te invitamos a dejar tus datos en la lista de espera")
-		}
-	  } 
-	  else {
+      const arrFechas = datos.docs.map((doc) => doc.data().fechaReserva);
 
-    await addDoc(collection(db, "reservas"), {
-      nombreCliente: inputs.nombreCliente,
-      apellidoCliente: inputs.apellidoCliente,
-      fechaReserva: inputs.fechaReserva,
-      cantidadPersonas: inputs.cantidadPersonas,
-      telefono: inputs.telefono,
+      //no funciona setFechasOcupados, no ref, si copia ...arrFechas
+      await setFechasOcupadas([...arrFechas]);
+    };
+    await readData("reservas");
+	console.log(fechasOcupadas);
+    let resultado = fechasOcupadas.find((fecha) => {
+		console.log(fecha);
+      return fecha === inputs.fechaReserva;
     });
-    try {
-      const docRef = await addDoc(collection(db, "reservas"), inputs);
-      console.log("Document written with ID: ", docRef.id);
-    } catch (e) {
-      console.error("Error adding document: ", e);
-    }
+    if (resultado) {
+      swal(
+        "La fecha elegida esta ocupada, te invitamos a dejar tus datos en la lista de espera"
+      );
+    } else {
+      console.log(fechasOcupadas);
+      console.log(inputs.fechaReserva);
+	  console.log(resultado);
 
-	navigate('/reserva-exitosa')
-}
+      await addDoc(collection(db, "reservas"), {
+        nombreCliente: inputs.nombreCliente,
+        apellidoCliente: inputs.apellidoCliente,
+        fechaReserva: inputs.fechaReserva,
+        cantidadPersonas: inputs.cantidadPersonas,
+        telefono: inputs.telefono,
+      });
+      try {
+        const docRef = await addDoc(collection(db, "reservas"), inputs);
+        console.log("Document written with ID: ", docRef.id);
+      } catch (e) {
+        console.error("Error adding document: ", e);
+      }
+
+      navigate("/reserva-exitosa");
+    }
     //funcion para recargar la pagina que recarga el home
     // window.location.reload(false);
   };
@@ -143,7 +138,7 @@ export function Reservas() {
             <option value="6">6</option>
           </Form.Control>
         </Form.Group>
-       
+
         <label>
           Ingresa fecha*:
           <input
@@ -170,6 +165,6 @@ export function Reservas() {
       </Form>
     </div>
   );
-};
+}
 
 export default Reservas;
